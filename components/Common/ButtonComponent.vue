@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { useCountStore, } from "~/stores/CountStoregit "
+import { useCountStore, } from "~~/stores/CountStore"
 const store = useCountStore()
 </script>
 

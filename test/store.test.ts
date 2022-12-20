@@ -4,7 +4,7 @@ import { describe, it, expect, beforeEach } from "vitest";
 import { setup } from "@nuxt/test-utils";
 
 
-describe("stor test", async () => {
+describe("store test", async () => {
     await setup({
 
     })
