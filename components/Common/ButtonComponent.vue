@@ -1,8 +1,8 @@
 <template>
     <div>
-        <Button @click="store.plusCount">push me +</Button>
-        {{ store.count }}
-        <Button @click="store.minusCount">push me -</Button>
+        <Button id="plus" @click="store.plusCount">push me +</Button>
+        <div id="count">{{ store.count }}</div>
+        <Button id="minus" @click="store.minusCount">push me -</Button>
     </div>
 </template>
 

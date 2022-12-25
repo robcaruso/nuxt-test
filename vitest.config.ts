@@ -13,27 +13,38 @@ export default defineConfig({
     plugins: [
         VueTypeImports(),
         Vue({
-          include: [/\.vue$/, /\.md$/],
+            include: [/\.vue$/, /\.md$/],
         }),
         AutoImport({
-            imports: ["vue"],
+            imports: ["vue", {
+                '#app': [
+                    // named imports
+                    'useFetch', // import { useMouse } from '@vueuse/core',
+                    // alias
+                ],
+            }],
         }),
         Components({
 
-          resolvers: [PrimeVueResolvers.PrimeVueResolver({ importStyle: true, importIcons: true }),]
+            resolvers: [PrimeVueResolvers.PrimeVueResolver({ importStyle: true, importIcons: true }),]
         })
     ],
 
     test: {
-        environment: "jsdom"
+        environment: "jsdom",
+        globals: true,
     },
     resolve: {
         alias: {
-          "~~": path.resolve(__dirname, "./"),
-          "@": path.resolve(__dirname, "./"),
-          "#app": path.resolve(__dirname, "./node_modules/nuxt/dist/app/index.mjs"),
-          "#imports": path.resolve(__dirname, "./node_modules/nuxt/dist/pages/runtime/composables.mjs"),
-          "#head": path.resolve(__dirname, "./node_modules/nuxt/dist/head/runtime/index.d.ts"),
+            "~~": path.resolve(__dirname, "./"),
+            "@@": path.resolve(__dirname, "./"),
+            "~": path.resolve(__dirname, "./"),
+            "@": path.resolve(__dirname, "./"),
+            "#app": path.resolve(__dirname, "./node_modules/nuxt/dist/app/index.mjs"),
+            "#imports": path.resolve(__dirname, "./node_modules/nuxt/dist/pages/runtime/composables.mjs"),
+            "#head": path.resolve(__dirname, "./node_modules/nuxt/dist/head/runtime/index.d.ts"),
+            //"#build": path.resolve(__dirname, ""),
+
         },
-      },
+    },
 });

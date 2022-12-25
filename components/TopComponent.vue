@@ -4,6 +4,7 @@
     </div>
     <CommonButtonComponent />
     <CommonTextBoxComponent />
+    <CommonProductList />
 </template>
 
 <script setup lang="ts">

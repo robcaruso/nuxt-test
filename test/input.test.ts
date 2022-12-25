@@ -3,8 +3,8 @@ import { setup } from "@nuxt/test-utils";
 import { mount } from "@vue/test-utils";
 import TextBoxComponentVue from "../components/Common/TextBoxComponent.vue";
 
-describe("my test", () => {
-    it("test", () => {
+describe("Input test", () => {
+    it("will mount and contain hello", () => {
         const wrapper = mount(TextBoxComponentVue);
         expect(wrapper.text()).toContain("hello")
     })
