@@ -4,7 +4,11 @@
     </div>
     <CommonButtonComponent />
     <CommonTextBoxComponent />
-    <CommonProductList />
+    <Suspense>
+
+        <CommonProductList />
+    </Suspense>
+    
 </template>
 
 <script setup lang="ts">
