@@ -1,9 +1,11 @@
 import { flushPromises, mount } from "@vue/test-utils";
+
 import { nextTick } from "vue";
 import { describe, expect, it } from "vitest";
 import ProductListVue from "@/components/Common/ProductList.vue";
+import Dropdown from 'primevue/dropdown';
 import TestComponentVue from "@/components/Test/TestComponent.vue";
-import { setup } from "@nuxt/test-utils";
+import { setup, createPage } from "@nuxt/test-utils";
 import PrimeVue from 'primevue/config';
 
 
@@ -11,8 +13,11 @@ import PrimeVue from 'primevue/config';
 describe("Product List Test", () => {
 
     it("will mount", async () => {
-        const wrapper = mount(TestComponentVue, {
-            global: { plugins: [PrimeVue] }
+        const wrapper = mount(ProductListVue, {
+            global: {
+                plugins: [PrimeVue],
+                components: { Dropdown }
+            }
         });
         await flushPromises();
         console.log(wrapper.html())
@@ -22,6 +27,9 @@ describe("Product List Test", () => {
         await dd.trigger("click");
         await flushPromises();
         console.log(dd.html());
+        const drop = wrapper.getComponent(Dropdown);
+        console.log("----------------------")
+        console.log(drop.html());
         await wrapper.find("[id='products_1']").trigger("click");
         expect(wrapper.text()).toContain("");
 

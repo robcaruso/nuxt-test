@@ -14,5 +14,10 @@ export default defineNuxtConfig({
     build: {
         transpile: ['primevue']
     },
-    test: true
+    test: true,
+    vite: {
+        plugins: [
+            nightwatchPlugin({ componentType: 'vue' })
+        ]
+    }
 })
